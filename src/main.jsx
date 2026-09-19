@@ -1,14 +1,13 @@
-import { useState } from 'react'
-import { createRoot } from 'react-dom/client'
 import {
   ArrowDown,
   ArrowRight,
-  Check,
   ChevronDown,
   CircleCheck,
   Menu,
-  X,
+  X
 } from 'lucide-react'
+import { useState } from 'react'
+import { createRoot } from 'react-dom/client'
 import './styles.css'
 
 const findings = [
@@ -59,13 +58,13 @@ function App() {
           <span>conexão que<br /><b>transforma</b></span>
         </a>
         <nav className={menuOpen ? 'nav-links nav-open' : 'nav-links'}>
-          <button onClick={() => scrollTo('diagnostico')}>O diagnóstico</button>
-          <button onClick={() => scrollTo('impacto')}>Impacto</button>
-          <button onClick={() => scrollTo('caminhos')}>Caminhos</button>
-          <button onClick={() => scrollTo('sobre')}>Sobre o projeto</button>
-          <button className="nav-cta" onClick={() => scrollTo('caminhos')}>Ver resultados <ArrowRight size={15} /></button>
+          <button type="button" onClick={() => scrollTo('diagnostico')}>O diagnóstico</button>
+          <button type="button" onClick={() => scrollTo('impacto')}>Impacto</button>
+          <button type="button" onClick={() => scrollTo('caminhos')}>Caminhos</button>
+          <button type="button" onClick={() => scrollTo('sobre')}>Sobre o projeto</button>
+          <button className="nav-cta" type="button" onClick={() => scrollTo('caminhos')}>Ver resultados <ArrowRight size={15} /></button>
         </nav>
-        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Abrir menu">
+        <button type="button" className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Abrir menu">
           {menuOpen ? <X size={23} /> : <Menu size={23} />}
         </button>
       </header>
@@ -77,11 +76,11 @@ function App() {
             <h1>Uma conexão melhor <em>muda tudo.</em></h1>
             <p className="hero-lead">Um diagnóstico feito com moradores de Água Quente, no Distrito Federal, para entender como a internet impacta a vida real.</p>
             <div className="hero-actions">
-              <button className="button button-dark" onClick={() => scrollTo('diagnostico')}>Conheça o diagnóstico <ArrowDown size={16} /></button>
+              <button type="button" className="button button-dark" onClick={() => scrollTo('diagnostico')}>Conheça o diagnóstico <ArrowDown size={16} /></button>
               <span className="hero-note">19 moradores ouvidos<br />em um condomínio residencial</span>
             </div>
           </div>
-          <div className="hero-visual" aria-label="Ilustração de conexão em comunidade">
+          <div className="hero-visual">
             <div className="orbit orbit-one" />
             <div className="orbit orbit-two" />
             <div className="signal-dot dot-one" /><div className="signal-dot dot-two" /><div className="signal-dot dot-three" />
@@ -99,7 +98,7 @@ function App() {
           <div className="section-kicker">01 <span>O diagnóstico</span></div>
           <div className="intro-grid">
             <h2>A internet está presente.<br /><em>Mas ainda não chega<br />do mesmo jeito para todos.</em></h2>
-            <div className="intro-body"><p>Em Água Quente, quase todas as casas estão conectadas por fibra óptica. Ainda assim, a experiência de estar online é marcada por poucas opções de operadoras, preços altos e interrupções que atravessam o cotidiano.</p><p>Este levantamento escuta quem vive essa realidade para transformar percepção em evidência — e evidência em próximos passos.</p><button className="text-link" onClick={() => scrollTo('metodo')}>Como chegamos aqui <ArrowRight size={16} /></button></div>
+            <div className="intro-body"><p>Em Água Quente, quase todas as casas estão conectadas por fibra óptica. Ainda assim, a experiência de estar online é marcada por poucas opções de operadoras, preços altos e interrupções que atravessam o cotidiano.</p><p>Este levantamento escuta quem vive essa realidade para transformar percepção em evidência — e evidência em próximos passos.</p><button type='button' className="text-link" onClick={() => scrollTo('metodo')}>Como chegamos aqui <ArrowRight size={16} /></button></div>
           </div>
         </section>
 
@@ -120,11 +119,11 @@ function App() {
           <div className="recommendation-grid">{recommendations.map((item) => <article className="recommendation" key={item.number}><span className="recommendation-number">{item.number}</span><h3>{item.title}</h3><p>{item.text}</p><div className="rec-check"><CircleCheck size={18} /> próximo passo possível</div></article>)}</div>
         </section>
 
-        <section className="manifesto section-pad"><div className="manifesto-mark">✦</div><p>Conexão não é luxo.<br /><em>É ponto de partida.</em></p><button className="button button-light" onClick={() => scrollTo('sobre')}>Conheça o projeto <ArrowRight size={16} /></button></section>
+        <section className="manifesto section-pad"><div className="manifesto-mark">✦</div><p>Conexão não é luxo.<br /><em>É ponto de partida.</em></p><button type="button" className="button button-light" onClick={() => scrollTo('sobre')}>Conheça o projeto <ArrowRight size={16} /></button></section>
 
         <section className="about section-pad" id="sobre">
           <div className="section-kicker">05 <span>Sobre o projeto</span></div><div className="about-grid"><div><h2>Escutar para<br /><em>transformar.</em></h2></div><div><p>Este diagnóstico foi desenvolvido como parte de um projeto de extensão universitária, em parceria com a comunidade de Água Quente, no Distrito Federal.</p><p>O objetivo é aproximar conhecimento e território, usando a pesquisa como ferramenta para revelar necessidades concretas e construir respostas coletivas.</p><div className="about-meta"><span><b>19</b> moradores</span><span><b>01</b> comunidade</span><span><b>03</b> ODS relacionados</span></div></div></div>
-          <div className="faq"><div className="faq-title">Perguntas sobre o diagnóstico</div>{['Onde a pesquisa foi realizada?', 'Quem participou do levantamento?', 'Quais são os próximos passos?'].map((question, index) => <button className="faq-row" key={question} onClick={() => setActiveFaq(activeFaq === index ? null : index)}><span>{question}</span><ChevronDown className={activeFaq === index ? 'rotate' : ''} size={18} />{activeFaq === index && <small>{index === 0 ? 'Em um condomínio residencial localizado na Região Administrativa de Água Quente, no Distrito Federal.' : index === 1 ? '19 moradores responderam ao questionário de diagnóstico de conectividade.' : 'Compartilhar os resultados, atrair novas operadoras e avaliar negociações coletivas para a comunidade.'}</small>}</button>)}</div>
+          <div className="faq"><div className="faq-title">Perguntas sobre o diagnóstico</div>{['Onde a pesquisa foi realizada?', 'Quem participou do levantamento?', 'Quais são os próximos passos?'].map((question, index) => <button type="button" className="faq-row" key={question} onClick={() => setActiveFaq(activeFaq === index ? null : index)}><span>{question}</span><ChevronDown className={activeFaq === index ? 'rotate' : ''} size={18} />{activeFaq === index && <small>{index === 0 ? 'Em um condomínio residencial localizado na Região Administrativa de Água Quente, no Distrito Federal.' : index === 1 ? '19 moradores responderam ao questionário de diagnóstico de conectividade.' : 'Compartilhar os resultados, atrair novas operadoras e avaliar negociações coletivas para a comunidade.'}</small>}</button>)}</div>
         </section>
       </main>
 
