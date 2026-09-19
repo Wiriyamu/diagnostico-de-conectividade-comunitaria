@@ -110,7 +110,7 @@ function App() {
         </section>
 
         <section className="story section-pad" id="metodo">
-          <div className="story-aside"><div className="section-kicker">03 <span>Por trás dos dados</span></div><p className="vertical-note">não é sobre tecnologia.<br /><b>é sobre possibilidades.</b></p></div>
+          <div className="story-aside"><div className="section-kicker">03 <span>Por trás dos dados</span></div></div>
           <div className="story-content"><h2>Quando a conexão falha,<br /><em>a rotina sente.</em></h2><p className="story-intro">Os problemas não ficam no roteador. Eles chegam à mesa de jantar, à sala de aula, ao trabalho e à conversa com quem está longe.</p><div className="challenge-list">{challenges.map(([label, percentage], index) => <div className="challenge" key={label}><span className="challenge-index">0{index + 1}</span><span className="challenge-label">{label}</span><span className="challenge-bar"><i style={{ width: percentage }} /></span><strong>{percentage}</strong></div>)}</div><div className="pull-quote"><span>“</span><p>Todos os 19 moradores já deixaram de realizar alguma atividade digital por problemas de internet.</p></div></div>
         </section>
 
