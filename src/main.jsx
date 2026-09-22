@@ -72,7 +72,7 @@ function App() {
       <main id="top">
         <section className="hero section-pad">
           <div className="hero-copy">
-            <div className="eyebrow"><span className="eyebrow-line" /> atividade extensionista · unirter</div>
+            <div className="eyebrow"><span className="eyebrow-line" /> atividade extensionista · uninter</div>
             <h1>Uma conexão melhor <em>muda tudo.</em></h1>
             <p className="hero-lead">Um diagnóstico feito com moradores de Água Quente, no Distrito Federal, para entender como a internet impacta a vida real.</p>
             <div className="hero-actions">
